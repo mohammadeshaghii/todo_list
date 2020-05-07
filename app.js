@@ -3,12 +3,7 @@ var study = new Vue({
     data: {
         heading: 'TODO',
         newTodo: '',
-        todos: [
-            /*
-      {text: 'add some todos'},
-      {text: 'add2 some todos'}
-      */
-        ],
+        todos: [{ text: 'add some todos' }, { text: 'add2 some todos' }],
         doneTodos: [],
     },
     methods: {
@@ -26,9 +21,12 @@ var study = new Vue({
             this.heading = 'OK';
         },
         removeTodo: function (index) {
-            console.log('remove func');
             this.doneTodos.push(this.todos[index]);
             this.todos.splice(index, 1);
         },
+        againTodo: function (index) {
+            this.todos.push(this.doneTodos[index]);
+            this.doneTodos.splice(index, 1);
+        }
     },
 });
